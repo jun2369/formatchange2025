@@ -13,6 +13,19 @@ function App() {
     setOutput1(result);
   };
 
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      // 可以添加一个提示，但这里保持简单
+    });
+  };
+
+  const handleReset = (inputId: string) => {
+    const input = document.getElementById(inputId) as HTMLTextAreaElement;
+    if (input) {
+      input.value = '';
+    }
+  };
+
   const handleConvert2 = () => {
     const input = (document.getElementById('input2') as HTMLTextAreaElement).value;
     const lines = input.split('\n').filter(line => line.trim());
@@ -80,15 +93,29 @@ function App() {
           style={{ width: '100%', height: '100px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px', fontFamily: 'monospace', boxSizing: 'border-box' }}
           placeholder="输入内容，每行一个"
         />
-        <button 
-          style={{ width: '100%', padding: '10px', marginTop: '10px', background: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
-          onClick={handleConvert1}
-        >
-          转换
-        </button>
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button 
+            style={{ flex: 1, padding: '10px', background: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={handleConvert1}
+          >
+            转换
+          </button>
+          <button 
+            style={{ padding: '10px 20px', background: '#999', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={() => handleReset('input1')}
+          >
+            RESET
+          </button>
+        </div>
         {output1 && (
           <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
             <strong>结果：</strong>{output1}
+            <button 
+              style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
+              onClick={() => handleCopy(output1)}
+            >
+              复制
+            </button>
           </div>
         )}
       </div>
@@ -101,15 +128,29 @@ function App() {
           style={{ width: '100%', height: '100px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px', fontFamily: 'monospace', boxSizing: 'border-box' }}
           placeholder="输入内容，每行一个"
         />
-        <button 
-          style={{ width: '100%', padding: '10px', marginTop: '10px', background: '#2196F3', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
-          onClick={handleConvert2}
-        >
-          转换
-        </button>
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button 
+            style={{ flex: 1, padding: '10px', background: '#2196F3', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={handleConvert2}
+          >
+            转换
+          </button>
+          <button 
+            style={{ padding: '10px 20px', background: '#999', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={() => handleReset('input2')}
+          >
+            RESET
+          </button>
+        </div>
         {output2 && (
           <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
             <strong>结果：</strong>{output2}
+            <button 
+              style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
+              onClick={() => handleCopy(output2)}
+            >
+              复制
+            </button>
           </div>
         )}
       </div>
@@ -122,15 +163,29 @@ function App() {
           style={{ width: '100%', height: '100px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px', fontFamily: 'monospace', boxSizing: 'border-box' }}
           placeholder="输入内容，每行一个"
         />
-        <button 
-          style={{ width: '100%', padding: '10px', marginTop: '10px', background: '#9C27B0', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
-          onClick={handleConvert3}
-        >
-          转换
-        </button>
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button 
+            style={{ flex: 1, padding: '10px', background: '#9C27B0', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={handleConvert3}
+          >
+            转换
+          </button>
+          <button 
+            style={{ padding: '10px 20px', background: '#999', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={() => handleReset('input3')}
+          >
+            RESET
+          </button>
+        </div>
         {output3 && (
           <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
             <strong>结果：</strong>{output3}
+            <button 
+              style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
+              onClick={() => handleCopy(output3)}
+            >
+              复制
+            </button>
           </div>
         )}
       </div>
@@ -143,15 +198,29 @@ function App() {
           style={{ width: '100%', height: '100px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px', fontFamily: 'monospace', boxSizing: 'border-box' }}
           placeholder="输入时间，每行一个，如：&#10;07/01/25 11:00&#10;08/09/25 14:02"
         />
-        <button 
-          style={{ width: '100%', padding: '10px', marginTop: '10px', background: '#FF9800', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
-          onClick={handleConvert4}
-        >
-          转换
-        </button>
+        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+          <button 
+            style={{ flex: 1, padding: '10px', background: '#FF9800', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={handleConvert4}
+          >
+            转换
+          </button>
+          <button 
+            style={{ padding: '10px 20px', background: '#999', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            onClick={() => handleReset('input4')}
+          >
+            RESET
+          </button>
+        </div>
         {output4 && (
           <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace', whiteSpace: 'pre-wrap' }}>
             <strong>结果：</strong><br />{output4}
+            <button 
+              style={{ marginTop: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
+              onClick={() => handleCopy(output4)}
+            >
+              复制
+            </button>
           </div>
         )}
       </div>
