@@ -24,6 +24,11 @@ function App() {
     if (input) {
       input.value = '';
     }
+    // 清空对应的输出
+    if (inputId === 'input1') setOutput1('');
+    if (inputId === 'input2') setOutput2('');
+    if (inputId === 'input3') setOutput3('');
+    if (inputId === 'input4') setOutput4('');
   };
 
   const handleConvert2 = () => {
