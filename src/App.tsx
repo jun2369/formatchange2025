@@ -108,7 +108,7 @@ function App() {
           </button>
         </div>
         {output1 && (
-          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
+          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace', wordBreak: 'break-all' }}>
             <strong>结果：</strong>{output1}
             <button 
               style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
@@ -143,7 +143,7 @@ function App() {
           </button>
         </div>
         {output2 && (
-          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
+          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace', wordBreak: 'break-all' }}>
             <strong>结果：</strong>{output2}
             <button 
               style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
@@ -178,7 +178,7 @@ function App() {
           </button>
         </div>
         {output3 && (
-          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace' }}>
+          <div style={{ marginTop: '10px', padding: '10px', background: '#f5f5f5', borderRadius: '4px', fontFamily: 'monospace', wordBreak: 'break-all' }}>
             <strong>结果：</strong>{output3}
             <button 
               style={{ marginLeft: '10px', padding: '5px 10px', background: '#666', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}
